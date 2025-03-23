@@ -1,0 +1,13 @@
+name: 'Delete Release by Tag'
+description: 'Deletes a release specified by tag name'
+author: 'Jérôme von Daak'
+inputs:
+  asset_tag:
+    description: 'The Tag of the release we are searching for'
+    required: true
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
+branding:
+  icon: 'delete'
+  color: 'red'
