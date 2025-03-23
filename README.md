@@ -21,7 +21,7 @@ npm run bundle
 ```yaml
 steps:
   - name: Delete Release by Tag
-    uses: Calmantras/Action_DeleteReleaseByTag@v1.2
+    uses: Calmantras/Action_DeleteReleaseByTag@v1.3
     with:
       asset_tag: Latest
 ```
