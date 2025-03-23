@@ -25976,7 +25976,7 @@ var fs = require("fs");
     });
     const releaseId = releaseRes.data.id;
     core.info(`Found Repo with tag: ${assetTag}. Id is: ${releaseId}`);
-    await gh.repos.getReleaseByTag({
+    await gh.repos.deleteRelease({
       owner: currentOwner,
       repo: currentRepo,
       release_id: releaseId
