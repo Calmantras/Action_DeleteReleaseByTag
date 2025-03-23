@@ -20,6 +20,11 @@ const fs = require("fs");
             tag: assetTag
         })
 
+        if(releaseRes.data === null){
+            core.info(`Could not find a release with tag: ${assetTag}`)
+            return
+        }
+
         // The releaseId with specified tag
         const releaseId = releaseRes.data.id
         core.info(`Found Repo with tag: ${assetTag}. Id is: ${releaseId}`)

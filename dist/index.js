@@ -25974,6 +25974,10 @@ var fs = require("fs");
       repo: currentRepo,
       tag: assetTag
     });
+    if (releaseRes.data === null) {
+      core.info(`Could not find a release with tag: ${assetTag}`);
+      return;
+    }
     const releaseId = releaseRes.data.id;
     core.info(`Found Repo with tag: ${assetTag}. Id is: ${releaseId}`);
     await gh.repos.deleteRelease({
