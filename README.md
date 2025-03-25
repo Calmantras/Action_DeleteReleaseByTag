@@ -14,14 +14,14 @@ npm run bundle
 
 ## Inputs
 
-- `asset_tag`: Tag name of the target release (required)
+- `release_tag`: Tag name of the target release (required)
 
 ## Usage
 
 ```yaml
 steps:
   - name: Delete Release by Tag
-    uses: Calmantras/Action_DeleteReleaseByTag@v1.2
+    uses: cobomi-lab/action-deletereleasebytag@v1.1
     with:
-      asset_tag: Latest
+      release_tag: Latest
 ```

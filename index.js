@@ -11,7 +11,7 @@ const fs = require("fs");
         // Get owner and repo from context of payload that triggered the action
         const { owner: currentOwner, repo: currentRepo } = context.repo
 
-        const assetTag = core.getInput('asset_tag', { required: false } || 'Latest')
+        const assetTag = core.getInput('release_tag', { required: false } || 'Latest')
 
         // Getting the uploadUrl of the Release with the Latest tag
         const releaseRes = await gh.repos.getReleaseByTag({
@@ -37,6 +37,6 @@ const fs = require("fs");
 
         core.info(`Release was deleted successfully.`)
     } catch (error) {
-        core.setFailed(error.message)
+        core.info(`The release could not be found. Either something went wrong, or the release does not exists.`)
     }
 })();

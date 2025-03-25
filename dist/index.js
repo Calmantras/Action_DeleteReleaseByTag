@@ -25968,7 +25968,7 @@ var fs = require("fs");
   try {
     const gh = new github.getOctokit(process.env.GITHUB_TOKEN);
     const { owner: currentOwner, repo: currentRepo } = context.repo;
-    const assetTag = core.getInput("asset_tag", { required: false });
+    const assetTag = core.getInput("release_tag", { required: false });
     const releaseRes = await gh.repos.getReleaseByTag({
       owner: currentOwner,
       repo: currentRepo,
@@ -25987,7 +25987,7 @@ var fs = require("fs");
     });
     core.info(`Release was deleted successfully.`);
   } catch (error) {
-    core.setFailed(error.message);
+    core.info(`The release could not be found. Either something went wrong, or the release does not exists.`);
   }
 })();
 /*! Bundled license information:
